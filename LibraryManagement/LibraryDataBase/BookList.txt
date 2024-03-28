@@ -1,0 +1,1 @@
+{"1001":{"bookId":1001,"bookName":"SpiderMan","bookAuthor":"Stan Lee","bookPublication":"MCU","bookEdition":"1st Edition","bookJourner":"Comics","bookVolume":1,"bookAvailableCount":25},"1002":{"bookId":1002,"bookName":"BatMan","bookAuthor":"Frank Stan","bookPublication":"DCU","bookEdition":"1st Edition","bookJourner":"Comics","bookVolume":1,"bookAvailableCount":25}}
