@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class ManageUserView {
 	private boolean valid;
-	private ManageUserModel manageUserModel;
+	private ManageUserViewModel manageUserViewModel;
 	private Scanner sc = new Scanner(System.in);
 
 	public ManageUserView() {
-		manageUserModel = new ManageUserModel(this);
+		manageUserViewModel = new ManageUserViewModel(this);
 	}
 
 	public void init() {
@@ -22,10 +22,10 @@ public class ManageUserView {
 				sc.nextLine();
 				switch (choice) {
 				case 0:
-					manageUserModel.toExportData();
+					manageUserViewModel.toExportData();
 					return;
 				case 1:
-					manageUserModel.printUserList();
+					manageUserViewModel.printUserList();
 					break;
 				case 2:
 					phoneNo();
@@ -37,7 +37,7 @@ public class ManageUserView {
 					removeUser();
 					break;
 				case 5:
-					manageUserModel.searchUser();
+					manageUserViewModel.searchUser();
 					break;
 				default:
 					System.out.println("\nPlease, Enter valid choice");
@@ -55,10 +55,10 @@ public class ManageUserView {
 		do {
 			System.out.print("\n Phone No: ");
 			phoneNo = sc.nextLine();
-			valid = manageUserModel.validPhoneNo(phoneNo);
+			valid = manageUserViewModel.validPhoneNo(phoneNo);
 		} while (!valid);
 		valid = false;
-		manageUserModel.isAvailablePhoneNo(phoneNo);
+		manageUserViewModel.isAvailablePhoneNo(phoneNo);
 	}
 
 	private void removeUser() {
@@ -66,7 +66,7 @@ public class ManageUserView {
 			System.out.print("\nEnter User ID: ");
 			int id = sc.nextInt();
 			sc.nextLine();
-			manageUserModel.isAvailableUserIdToRemove(id);
+			manageUserViewModel.isAvailableUserIdToRemove(id);
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease enter valid User ID...");
 			sc.nextLine();
@@ -79,20 +79,20 @@ public class ManageUserView {
 		do {
 			System.out.print("\n User's Name: ");
 			name = sc.nextLine();
-			valid = manageUserModel.validName(name);
+			valid = manageUserViewModel.validName(name);
 		} while (!valid);
 		do {
 			System.out.print(" User's Email Id: ");
 			emailId = sc.nextLine();
-			valid = manageUserModel.validEmailId(emailId);
+			valid = manageUserViewModel.validEmailId(emailId);
 		} while (!valid);
 		do {
 			System.out.print(" User's Location: ");
 			address = sc.nextLine();
-			valid = manageUserModel.validLocation(address);
+			valid = manageUserViewModel.validLocation(address);
 		} while (!valid);
 		valid = false;
-		manageUserModel.createUser(name, phoneNo, emailId, address);
+		manageUserViewModel.createUser(name, phoneNo, emailId, address);
 	}
 
 	private void updateUser() {
@@ -100,7 +100,7 @@ public class ManageUserView {
 			System.out.print("\nEnter User ID: ");
 			int id = sc.nextInt();
 			sc.nextLine();
-			manageUserModel.isAvailableUserIdToUpdate(id);
+			manageUserViewModel.isAvailableUserIdToUpdate(id);
 			return;
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease, Enter valid Book ID");
@@ -118,25 +118,25 @@ public class ManageUserView {
 		do {
 			System.out.print("\n User's Name: ");
 			name = sc.nextLine();
-			valid = manageUserModel.validName(name);
+			valid = manageUserViewModel.validName(name);
 		} while (!valid);
 		do {
 			System.out.print(" User's Phone No: ");
 			phoneNo = sc.nextLine();
-			valid = manageUserModel.validPhoneNo(phoneNo);
+			valid = manageUserViewModel.validPhoneNo(phoneNo);
 		} while (!valid);
 		do {
 			System.out.print(" User's Email Id: ");
 			emailId = sc.nextLine();
-			valid = manageUserModel.validEmailId(emailId);
+			valid = manageUserViewModel.validEmailId(emailId);
 		} while (!valid);
 		do {
 			System.out.print(" User's Location: ");
 			address = sc.nextLine();
-			valid = manageUserModel.validLocation(address);
+			valid = manageUserViewModel.validLocation(address);
 		} while (!valid);
 		valid = false;
-		manageUserModel.updateUser(id, name, phoneNo, emailId, address);
+		manageUserViewModel.updateUser(id, name, phoneNo, emailId, address);
 	}
 
 	public void search() {
@@ -144,7 +144,7 @@ public class ManageUserView {
 			System.out.print("\nEnter User ID: ");
 			int id = sc.nextInt();
 			sc.nextLine();
-			manageUserModel.isAvailableUserIdToSearch(id);
+			manageUserViewModel.isAvailableUserIdToSearch(id);
 			return;
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease, Enter valid Book ID");

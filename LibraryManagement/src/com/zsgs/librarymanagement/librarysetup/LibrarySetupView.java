@@ -14,15 +14,15 @@ public class LibrarySetupView {
 
 	private boolean valid;
 	private LibraryManagement2024 libraryManagement2024 = LibraryManagement2024.getInstance();
-	private LibrarySetupModel librarySetupModel;
+	private LibrarySetupViewModel librarySetupViewModel;
 	private Scanner sc = new Scanner(System.in);
 
 	public LibrarySetupView() {
-		librarySetupModel = new LibrarySetupModel(this);
+		librarySetupViewModel = new LibrarySetupViewModel(this);
 	}
 
 	public void init() {
-		librarySetupModel.startSetup();
+		librarySetupViewModel.startSetup();
 	}
 
 	public void initiateSetup() {
@@ -31,33 +31,33 @@ public class LibrarySetupView {
 		do {
 			System.out.print(" Id: ");
 			id = sc.nextLine();
-			valid = librarySetupModel.validId(id);
+			valid = librarySetupViewModel.validId(id);
 		} while (!valid);
 		valid = false;
 		do {
 			System.out.print("\n Name: ");
 			name = sc.nextLine();
-			valid = librarySetupModel.validName(name);
+			valid = librarySetupViewModel.validName(name);
 		} while (!valid);
 		valid = false;
 		do {
 			System.out.print(" Phone No: ");
 			phoneNo = sc.nextLine();
-			valid = librarySetupModel.validPhoneNo(phoneNo);
+			valid = librarySetupViewModel.validPhoneNo(phoneNo);
 		} while (!valid);
 		valid = false;
 		do {
 			System.out.print(" Email Id: ");
 			emailId = sc.nextLine();
-			valid = librarySetupModel.validEmailId(emailId);
+			valid = librarySetupViewModel.validEmailId(emailId);
 		} while (!valid);
 		do {
 			System.out.print(" Location: ");
 			address = sc.nextLine();
-			valid = librarySetupModel.validLocation(address);
+			valid = librarySetupViewModel.validLocation(address);
 		} while (!valid);
 		valid = false;
-		librarySetupModel.createLibrary(id, name, phoneNo, emailId, address);
+		librarySetupViewModel.createLibrary(id, name, phoneNo, emailId, address);
 	}
 
 	public void onSetupComplete(Library library) {
@@ -79,11 +79,11 @@ public class LibrarySetupView {
 					break;
 				case 9:
 					showMessage("\n--- Logout successful ---");
-					librarySetupModel.toExportData();
+					librarySetupViewModel.toExportData();
 					new LoginView().proceedLogin();
 					return;
 				case 0:
-					librarySetupModel.toExportData();
+					librarySetupViewModel.toExportData();
 					exit();
 					return;
 				default:

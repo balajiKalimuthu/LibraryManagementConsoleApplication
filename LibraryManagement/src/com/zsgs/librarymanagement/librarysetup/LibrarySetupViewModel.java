@@ -3,12 +3,12 @@ package com.zsgs.librarymanagement.librarysetup;
 import com.zsgs.librarymanagement.datastorage.LibraryDataBase;
 import com.zsgs.librarymanagement.vadidator.ValueValidator;
 
-public class LibrarySetupModel {
+public class LibrarySetupViewModel {
 
 	private LibraryDataBase dataBase = LibraryDataBase.getInstance();
 	private LibrarySetupView librarySetupView;
 
-	LibrarySetupModel(LibrarySetupView librarySetupView) {
+	LibrarySetupViewModel(LibrarySetupView librarySetupView) {
 		this.librarySetupView = librarySetupView;
 	}
 

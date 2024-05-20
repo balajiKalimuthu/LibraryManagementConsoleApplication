@@ -4,11 +4,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ManageIssueView {
-	private ManageIssueModel manageIssueModel;
+	private ManageIssueViewModel manageIssueViewModel;
 	private Scanner sc = new Scanner(System.in);
 
 	public ManageIssueView() {
-		manageIssueModel = new ManageIssueModel(this);
+		manageIssueViewModel = new ManageIssueViewModel(this);
 	}
 
 	public void init() {
@@ -21,22 +21,22 @@ public class ManageIssueView {
 				sc.nextLine();
 				switch (choice) {
 				case 0:
-					manageIssueModel.toExportData();
+					manageIssueViewModel.toExportData();
 					return;
 				case 1:
-					manageIssueModel.isAvailableUserList();
+					manageIssueViewModel.isAvailableUserList();
 					break;
 				case 2:
-					manageIssueModel.printIssuedList();
+					manageIssueViewModel.printIssuedList();
 					break;
 				case 3:
-					manageIssueModel.printUserIssuedList();
+					manageIssueViewModel.printUserIssuedList();
 					break;
 				case 4:
-					manageIssueModel.printBookIssuedList();
+					manageIssueViewModel.printBookIssuedList();
 					break;
 				case 5:
-					manageIssueModel.returnIssueBook();
+					manageIssueViewModel.returnIssueBook();
 					break;
 				default:
 					showMessage("\nPlease enter valid choice...");
@@ -58,7 +58,7 @@ public class ManageIssueView {
 			System.out.print("\n User ID: ");
 			int id = sc.nextInt();
 			sc.nextLine();
-			manageIssueModel.isAvailableUser(id);
+			manageIssueViewModel.isAvailableUser(id);
 
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease enter valid User ID...");
@@ -70,7 +70,7 @@ public class ManageIssueView {
 			System.out.print("\n Book ID: ");
 			int bookId = sc.nextInt();
 			sc.nextLine();
-			manageIssueModel.isAvailableBook(userId, bookId);
+			manageIssueViewModel.isAvailableBook(userId, bookId);
 
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease enter valid User ID...");
@@ -82,7 +82,7 @@ public class ManageIssueView {
 			System.out.print("\n User ID: ");
 			int userId = sc.nextInt();
 			sc.nextLine();
-			manageIssueModel.isAvailableUserIssue(userId);
+			manageIssueViewModel.isAvailableUserIssue(userId);
 
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease enter valid User ID...");
@@ -94,7 +94,7 @@ public class ManageIssueView {
 			System.out.print("\n Book ID: ");
 			int bookId = sc.nextInt();
 			sc.nextLine();
-			manageIssueModel.isAvailableBookIssue(bookId);
+			manageIssueViewModel.isAvailableBookIssue(bookId);
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease enter valid Book ID...");
 		}
@@ -105,7 +105,7 @@ public class ManageIssueView {
 			System.out.print("\n Issue ID: ");
 			int issueId = sc.nextInt();
 			sc.nextLine();
-			manageIssueModel.isAvailableReturnIssue(issueId);
+			manageIssueViewModel.isAvailableReturnIssue(issueId);
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease enter valid Book ID...");
 		}

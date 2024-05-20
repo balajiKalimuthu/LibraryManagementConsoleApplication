@@ -4,7 +4,7 @@ import com.zsgs.librarymanagement.datastorage.LibraryDataBase;
 import com.zsgs.librarymanagement.login.LoginView;
 
 public class LibraryManagement2024 {
-	
+
 	private static LibraryManagement2024 libraryManagement2024;
 	private LibraryDataBase dataBase = LibraryDataBase.getInstance();
 	private String appName = "Library Management System";

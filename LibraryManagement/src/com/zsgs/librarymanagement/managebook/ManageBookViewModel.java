@@ -2,11 +2,11 @@ package com.zsgs.librarymanagement.managebook;
 
 import com.zsgs.librarymanagement.datastorage.LibraryDataBase;
 
-public class ManageBookModel {
+public class ManageBookViewModel {
 	private LibraryDataBase dataBase = LibraryDataBase.getInstance();
 	private ManageBookView manageBookView;
 
-	ManageBookModel(ManageBookView manageBookView) {
+	ManageBookViewModel(ManageBookView manageBookView) {
 		this.manageBookView = manageBookView;
 	}
 

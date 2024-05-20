@@ -2,12 +2,12 @@ package com.zsgs.librarymanagement.login;
 
 import com.zsgs.librarymanagement.datastorage.LibraryDataBase;
 
-public class LoginModel {
+public class LoginViewModel {
 
 	private LibraryDataBase dataBase = LibraryDataBase.getInstance();
 	private LoginView loginView;
 
-	LoginModel(LoginView loginView) {
+	LoginViewModel(LoginView loginView) {
 		this.loginView = loginView;
 	}
 

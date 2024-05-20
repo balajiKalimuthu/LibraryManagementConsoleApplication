@@ -3,11 +3,11 @@ package com.zsgs.librarymanagement.manageuser;
 import com.zsgs.librarymanagement.datastorage.LibraryDataBase;
 import com.zsgs.librarymanagement.vadidator.ValueValidator;
 
-public class ManageUserModel {
+public class ManageUserViewModel {
 	private LibraryDataBase dataBase = LibraryDataBase.getInstance();
 	private ManageUserView manageUserView;
 
-	ManageUserModel(ManageUserView manageUserView) {
+	ManageUserViewModel(ManageUserView manageUserView) {
 		this.manageUserView = manageUserView;
 	}
 

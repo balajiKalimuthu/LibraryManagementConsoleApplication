@@ -2,11 +2,11 @@ package com.zsgs.librarymanagement.manageissue;
 
 import com.zsgs.librarymanagement.datastorage.LibraryDataBase;
 
-public class ManageIssueModel {
+public class ManageIssueViewModel {
 	private LibraryDataBase dataBase = LibraryDataBase.getInstance();
 	private ManageIssueView manageIssueView;
 
-	public ManageIssueModel(ManageIssueView manageIssueView) {
+	public ManageIssueViewModel(ManageIssueView manageIssueView) {
 		this.manageIssueView = manageIssueView;
 	}
 

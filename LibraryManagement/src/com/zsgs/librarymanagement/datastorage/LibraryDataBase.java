@@ -22,7 +22,7 @@ public class LibraryDataBase {
 	private Map<Integer, BookIssue> bookIssueList = new HashMap<Integer, BookIssue>();
 	private Map<Integer, Book> bookList = new HashMap<Integer, Book>();
 	private Map<Integer, User> userList = new HashMap<Integer, User>();
-	
+
 	private LibraryDataBase() {
 	}
 
@@ -252,45 +252,54 @@ public class LibraryDataBase {
 		}
 		return valid;
 	}
-	
+
 	public void serializeBookIssueList() {
-        dataLayer.serializeData(bookIssueList, "BookIssueList.txt");
-    }
+		dataLayer.serializeData(bookIssueList, "BookIssueList.txt");
+	}
+
 	public void deserializeBookIssueList() {
-		Type bookIssueListType = new TypeToken<HashMap<Integer, BookIssue>>(){
+		Type bookIssueListType = new TypeToken<HashMap<Integer, BookIssue>>() {
 		}.getType();
 		bookIssueList = dataLayer.deserializeData("BookIssueList.txt", bookIssueListType, HashMap.class);
 	}
+
 	public void serializeLibrary() {
 		dataLayer.serializeData(libraryList, "LibraryList.txt");
 	}
+
 	public void deserializeLibrary() {
-		Type libraryListType = new TypeToken<HashMap<Integer, Library>>(){
+		Type libraryListType = new TypeToken<HashMap<Integer, Library>>() {
 		}.getType();
-		libraryList =  dataLayer.deserializeData("LibraryList.txt", libraryListType, HashMap.class);
+		libraryList = dataLayer.deserializeData("LibraryList.txt", libraryListType, HashMap.class);
 	}
+
 	public void serializeBookList() {
-        dataLayer.serializeData(bookList, "BookList.txt");
-    }
+		dataLayer.serializeData(bookList, "BookList.txt");
+	}
+
 	public void deserializeBookList() {
-		Type bookListType = new TypeToken<HashMap<Integer, BookIssue>>(){
+		Type bookListType = new TypeToken<HashMap<Integer, BookIssue>>() {
 		}.getType();
 		bookList = dataLayer.deserializeData("BookList.txt", bookListType, HashMap.class);
 	}
+
 	public void serializeUserList() {
-        dataLayer.serializeData(userList, "UserList.txt");
-    }
+		dataLayer.serializeData(userList, "UserList.txt");
+	}
+
 	public void deserializeUserList() {
-		Type userListType = new TypeToken<HashMap<Integer, BookIssue>>(){
+		Type userListType = new TypeToken<HashMap<Integer, BookIssue>>() {
 		}.getType();
 		userList = dataLayer.deserializeData("UserList.txt", userListType, HashMap.class);
 	}
+
 	public void exportData() {
 		serializeBookIssueList();
 		serializeBookList();
 		serializeLibrary();
 		serializeUserList();
 	}
+
 	public void importData() {
 		deserializeBookIssueList();
 		deserializeBookList();

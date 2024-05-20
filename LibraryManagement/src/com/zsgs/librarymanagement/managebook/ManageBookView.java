@@ -4,11 +4,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ManageBookView {
-	private ManageBookModel manageBookModel;
+	private ManageBookViewModel manageBookViewModel;
 	private Scanner sc = new Scanner(System.in);
 
 	public ManageBookView() {
-		manageBookModel = new ManageBookModel(this);
+		manageBookViewModel = new ManageBookViewModel(this);
 	}
 
 	public void init() {
@@ -21,10 +21,10 @@ public class ManageBookView {
 				sc.nextLine();
 				switch (choice) {
 				case 0:
-					manageBookModel.toExportData();
+					manageBookViewModel.toExportData();
 					return;
 				case 1:
-					manageBookModel.printList();
+					manageBookViewModel.printList();
 					break;
 				case 2:
 					createBook();
@@ -36,7 +36,7 @@ public class ManageBookView {
 					removeBook();
 					break;
 				case 5:
-					manageBookModel.searchBook();
+					manageBookViewModel.searchBook();
 					break;
 				default:
 					showMessage("\nPlease enter valid choice...");
@@ -64,7 +64,7 @@ public class ManageBookView {
 		int volume = sc.nextInt();
 		System.out.print("Available: ");
 		int available = sc.nextInt();
-		manageBookModel.createBook(name, authorName, publication, edition, journer, volume, available);
+		manageBookViewModel.createBook(name, authorName, publication, edition, journer, volume, available);
 	}
 
 	private void updateBook() {
@@ -72,7 +72,7 @@ public class ManageBookView {
 			System.out.print("\nEnter Book ID: ");
 			int id = sc.nextInt();
 			sc.nextLine();
-			manageBookModel.isAvailableBookIdToUpdate(id);
+			manageBookViewModel.isAvailableBookIdToUpdate(id);
 			return;
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease, Enter valid Book ID");
@@ -98,7 +98,7 @@ public class ManageBookView {
 		System.out.print("Available: ");
 		int available = sc.nextInt();
 		sc.nextLine();
-		manageBookModel.updateBook(id, name, authorName, publication, edition, journer, volume, available);
+		manageBookViewModel.updateBook(id, name, authorName, publication, edition, journer, volume, available);
 	}
 
 	private void removeBook() {
@@ -106,7 +106,7 @@ public class ManageBookView {
 			System.out.print("\nEnter Book ID: ");
 			int id = sc.nextInt();
 			sc.nextLine();
-			manageBookModel.isAvailableBookIdToRemove(id);
+			manageBookViewModel.isAvailableBookIdToRemove(id);
 		} catch (InputMismatchException e) {
 			showMessage("\nPlease, Enter valid Book ID");
 			sc.nextLine();
@@ -126,7 +126,7 @@ public class ManageBookView {
 					System.out.print("\n Book Id: ");
 					int id = sc.nextInt();
 					sc.nextLine();
-					manageBookModel.searchBookById(id);
+					manageBookViewModel.searchBookById(id);
 				} catch (InputMismatchException e) {
 					System.out.println("\nPlease enter valid input");
 				}
@@ -134,12 +134,12 @@ public class ManageBookView {
 			case 2:
 				System.out.print("\n Book Name: ");
 				String name = sc.nextLine();
-				manageBookModel.searchBookByName(name);
+				manageBookViewModel.searchBookByName(name);
 				break;
 			case 3:
 				System.out.print("\n Author Name: ");
 				String authorName = sc.nextLine();
-				manageBookModel.searchBookByAuthor(authorName);
+				manageBookViewModel.searchBookByAuthor(authorName);
 				break;
 			case 0:
 			default:

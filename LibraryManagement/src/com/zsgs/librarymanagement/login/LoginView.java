@@ -8,11 +8,11 @@ import com.zsgs.librarymanagement.librarysetup.LibrarySetupView;
 public class LoginView {
 
 	private LibraryManagement2024 libraryManagement2024 = LibraryManagement2024.getInstance();
-	private LoginModel loginModel;
+	private LoginViewModel loginViewModel;
 	private Scanner sc = new Scanner(System.in);
 
 	public LoginView() {
-		loginModel = new LoginModel(this);
+		loginViewModel = new LoginViewModel(this);
 	}
 
 	public void init() {
@@ -27,7 +27,7 @@ public class LoginView {
 		System.out.println("Type: Yes / No");
 		System.out.print("\n Your Choice: ");
 		String type = sc.nextLine();
-		loginModel.isType(type);
+		loginViewModel.isType(type);
 	}
 
 	public void onLoginSuccess() {
@@ -44,7 +44,7 @@ public class LoginView {
 		String userName = sc.nextLine();
 		System.out.print(" Enter Admin's Password: ");
 		String userPassword = sc.nextLine();
-		loginModel.validateUser(userName, userPassword);
+		loginViewModel.validateUser(userName, userPassword);
 	}
 
 	public void onLoginFailed(String alertMessage) {
